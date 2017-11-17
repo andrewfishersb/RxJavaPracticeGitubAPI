@@ -5,12 +5,12 @@ package numedics.rxjavagithub;
  */
 
 public class GitHubRepo {
-    public final int id;//try making these private and not final
-    public final String userName;
-    public final String url;
-    public final String description;
-    public final String codeLanguage;
-    public final int starCount;
+    private final int id;//try making these private and not final
+    private final String userName;
+    private final String url;
+    private final String description;
+    private final String codeLanguage;
+    private final int starCount;
 
 
     public GitHubRepo(int id, String userName, String url, String description, String codeLanguage, int starCount) {
@@ -20,6 +20,30 @@ public class GitHubRepo {
         this.description = description;
         this.codeLanguage = codeLanguage;
         this.starCount = starCount;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getCodeLanguage() {
+        return codeLanguage;
+    }
+
+    public int getStarCount() {
+        return starCount;
     }
 
 }
