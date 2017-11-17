@@ -43,7 +43,8 @@ public class GitHubRepoAdapter extends BaseAdapter {
         final View view = (convertView != null ? convertView : createView(parent));
         final GitHubRepoViewHolder viewHolder = (GitHubRepoViewHolder) view.getTag();
         viewHolder.setGitHubRepo(getItem(position));
-        return null;
+        return view;
+
     }
 
     public void setGitHubRepos(@Nullable List<GitHubRepo> repos) {
@@ -70,18 +71,18 @@ public class GitHubRepoAdapter extends BaseAdapter {
         private TextView txtLanguage;
         private TextView txtStars;
 
-        public GitHubRepoViewHolder(View view){
+        private GitHubRepoViewHolder(View view){
             txtRepoName = (TextView) view.findViewById(R.id.text_repo_name);
             txtRepoDescription = (TextView) view.findViewById(R.id.text_repo_description);
-            txtLanguage = (TextView) view.findViewById(R.id.text_repo_language);
-            txtStars = (TextView) view.findViewById(R.id.text_repo_ stars);
+            txtLanguage = (TextView) view.findViewById(R.id.text_language);
+            txtStars = (TextView) view.findViewById(R.id.text_stars);
         }
 
-        public void setGitHubRepo(GitHubRepo gitHubRepo){
-            txtRepoName.setText(gitHubRepo.getUserName());
+        private void setGitHubRepo(GitHubRepo gitHubRepo){
+            txtRepoName.setText(gitHubRepo.getName());
             txtRepoDescription.setText(gitHubRepo.getDescription());
-            txtLanguage.setText("Language: " + gitHubRepo.getCodeLanguage());
-            txtStars.setText("Stars: " + gitHubRepo.getStarCount());
+            txtLanguage.setText("Language: " + gitHubRepo.getLanguage());
+            txtStars.setText("Stars: " + gitHubRepo.stargazersCount());
 
 
 

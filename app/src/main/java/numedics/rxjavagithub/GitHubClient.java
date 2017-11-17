@@ -20,7 +20,6 @@ import rx.Observable;
 public class GitHubClient {
 
     private static final String GITHUB_BASE_URL = "https://api.github.com/";
-
     private static GitHubClient instance;
     private GitHubService gitHubService;
 
