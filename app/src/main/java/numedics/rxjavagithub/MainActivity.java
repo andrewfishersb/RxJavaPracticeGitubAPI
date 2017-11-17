@@ -1,10 +1,13 @@
 package numedics.rxjavagithub;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -39,6 +42,17 @@ public class MainActivity extends AppCompatActivity {
                 if (!TextUtils.isEmpty(username)) {
                     getStarredRepos(username);
                 }
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                GitHubRepo clickedRepo = (GitHubRepo) listView.getItemAtPosition(position);
+                String clickedUrl = clickedRepo.getHtmlUrl();
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(clickedUrl));
+                startActivity(intent);
             }
         });
     }

@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="6dp">
+    android:padding="6dp"
+    android:id="@+id/repo_item">
 
     <TextView
         android:id="@+id/text_repo_name"
